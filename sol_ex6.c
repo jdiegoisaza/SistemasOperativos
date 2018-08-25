@@ -13,7 +13,7 @@ int main(void){
     }
     double a[n];
     for(int i=0;i<n;i++){
-        printf("Ingrese el elemento %d: ",i);
+        printf("Ingrese el elemento %d: ",i+1);
         scanf("%lf",&f);
         a[i]=f;
     }
