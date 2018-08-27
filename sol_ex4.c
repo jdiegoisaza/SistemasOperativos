@@ -23,12 +23,16 @@ void stringToMayuscula(char s[]);
 
 
 int main(void) {
-    
+    int b;
+    do{
     char palabra[]="";
     printf("Ingrese palabra: ");
     scanf("%s",palabra);
     stringToMayuscula(palabra);
-
+    printf("%s\n",palabra);
+    printf("Para terminar marque 0 y para continuar marque 1: ");
+    scanf("%d",&b);
+    }while(b!=0);
   /*testVolverMayuscula();
   testEsLetra();
   testStringToMayuscula();
@@ -76,7 +80,7 @@ void stringToMayuscula(char s[]) {
     if(i==1){
       volverMayuscula(p1);
     }
-  printf("%c",*p1);
+  //printf("%c",*p1);
     s=s+1;
   }
 
