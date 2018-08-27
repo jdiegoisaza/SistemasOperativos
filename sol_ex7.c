@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 
 void ordenacionShell(double a[][7], int n){
@@ -13,7 +14,7 @@ void ordenacionShell(double a[][7], int n){
             while(j>=0){
                 k= j+ intervalo;
                 
-                if (a[j][6]<= a[k][6]) {
+                if (a[j][6]>= a[k][6]) {
                     j=-1;
                 }
                 else
@@ -49,7 +50,7 @@ void ordenacionShell(double a[][7], int n){
 }
 
 int main(void){
-    int n;
+    int n,m,t,b;
     double nota,pNotas;
     double f;
     printf("Ingrese la cantidad de alumnos: ");
@@ -81,12 +82,48 @@ int main(void){
         }
         lista[copiaN][k]=promMateria/copiaN;
     }
-    ordenacionShell(lista,n);
+    do{
+    printf("Coloque el numero de lo que desea seleccionar:\n");
+    printf("0-media de cada alumno\n");
+    printf("1-media de la asignatura 1\n");
+    printf("2-media de la asignatura 2\n");
+    printf("3-media de la asignatura 3\n");
+    printf("4-media de la asignatura 4\n");
+    printf("5-media de la asignatura 5\n");
+    printf("6-la media total de la clase\n");
+    printf("7-Ordenar los alumnos por orden decreciente de notas medias individuales \n");
+    scanf("%d",&m);
+    switch ( m )
+   {
+      case 0 : printf("Ingrese el alumno: ");
+               scanf("%d",&t);
+               printf( "%.2f\n",lista[t][6] );
+               break;
+      case 1 : printf( "%.2f\n",lista[n][1] );
+               break;
+      case 2 : printf( "%.2f\n",lista[n][2] );
+               break;
+      case 3 : printf( "%.2f\n",lista[n][3] );
+               break;
+      case 4 : printf( "%.2f\n",lista[n][4] );
+               break;
+      case 5 : printf( "%.2f\n",lista[n][5] );
+               break;
+      case 6 : printf( "%.2f\n",lista[n][6] );
+               break;
+      case 7 : ordenacionShell(lista,n);
 
-    for(int i=0;i<n+1;i++){
+               break;
+   default : printf( "\n   ERROR: numero incorrecto." );
+   }
+   printf("Si quiere terminar marque 0: ");
+    scanf("%d",&b);
+    }while(b!=0);
+
+    /*for(int i=0;i<n+1;i++){
         
-            printf("%f  %f  %f  %f  %f  %f  %f\n",lista[i][0],lista[i][1],lista[i][2],lista[i][3],lista[i][4],lista[i][5],lista[i][6]);
+            printf("%.2f  %.2f  %.2f  %.2f  %.2f  %.2f  %.2f\n",lista[i][0],lista[i][1],lista[i][2],lista[i][3],lista[i][4],lista[i][5],lista[i][6]);
 
-    }
+    }*/
     return 0;
 }
