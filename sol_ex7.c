@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 
 void ordenacionShell(double a[][7], int n){
@@ -59,12 +58,16 @@ int main(void){
     double lista[n+1][7];
     for(int i=0;i<n;i++){
         for(int j=1;j<6;j++){
-            printf("Ingrese la nota del alumno %d para la asignatura %d: ",i+1,j);
+            printf("\nIngrese la nota del alumno %d para la asignatura %d: ",i+1,j);
             scanf("%lf",&nota);
+            if(nota>=0 && nota<=5){
             lista[i][j]=nota;
-            printf("%d  %d   %.2f\n",i,j,lista[i][j]);
+            }else {
+                printf("NOTA NO VALIDA: Las notas son de 0 a 5"); return 0;
+            }
+            //printf("%d  %d   %.2f\n",i,j,lista[i][j]);
         }
-
+    printf("Las notas del Alumno ingresaron correctamente....\n\n");
     }
     for(int i=0;i<n;i++){
         pNotas=0;
@@ -83,6 +86,7 @@ int main(void){
         lista[copiaN][k]=promMateria/copiaN;
     }
     do{
+    printf("\n...MENU...\n\n");
     printf("Coloque el numero de lo que desea seleccionar:\n");
     printf("0-media de cada alumno\n");
     printf("1-media de la asignatura 1\n");
@@ -94,7 +98,7 @@ int main(void){
     printf("7-Ordenar los alumnos por orden decreciente de notas medias individuales \n");
     scanf("%d",&m);
     switch ( m )
-   {
+   {  
       case 0 : printf("Ingrese el alumno: ");
                scanf("%d",&t);
                printf( "%.2f\n",lista[t][6] );
@@ -112,8 +116,10 @@ int main(void){
       case 6 : printf( "%.2f\n",lista[n][6] );
                break;
       case 7 : ordenacionShell(lista,n);
-
-               break;
+            for(int i=0;i<n;i++){
+                    printf("El Alumno %.2f tiene promedio: %.2f\n",lista[i][0],lista[i][6]);
+                }
+                break;
    default : printf( "\n   ERROR: numero incorrecto." );
    }
    printf("Si quiere terminar marque 0: ");
@@ -123,7 +129,6 @@ int main(void){
     /*for(int i=0;i<n+1;i++){
         
             printf("%.2f  %.2f  %.2f  %.2f  %.2f  %.2f  %.2f\n",lista[i][0],lista[i][1],lista[i][2],lista[i][3],lista[i][4],lista[i][5],lista[i][6]);
-
     }*/
     return 0;
 }
